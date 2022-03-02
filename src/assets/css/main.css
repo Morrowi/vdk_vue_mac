@@ -357,3 +357,76 @@ h1{
 	background-position: center;
 	background-size: 10px 8px;
 }
+
+.screen_4 .warp_radio_button,
+.screen_7 .warp_radio_button,
+.screen_8 .warp_radio_button{
+	color: #2F7135;
+	font-weight: 600;
+	font-size: 21px;
+	line-height: 130%;
+}
+
+.screen_4 .warp_selected_date_screen_3,
+.screen_4 .warp_info,
+.screen_7 .warp_selected_date_screen_3,
+.screen_7 .warp_info,
+.screen_8 .warp_selected_date_screen_3,
+.screen_8 .warp_info{
+	height: auto;
+	margin-bottom: 20px;
+}
+
+.screen_4 .warp_selected_date_screen_3,
+.screen_7 .warp_selected_date_screen_3,
+.screen_8 .warp_selected_date_screen_3{
+	padding-bottom: 29px;
+}
+
+.screen_5 .title_block_1{
+	margin-bottom: 44px;
+}
+
+.screen_5 .warp_block_1{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.screen_5 .warp_block_2 .title_block_1{
+	margin-bottom: 71px;
+}
+.screen_5 .warp_block_3 .title_block_1{
+	margin-bottom: 17px;
+}
+
+.screen_5 .sub_title_block_1{
+	margin-bottom: 38px;
+}
+
+
+.screen_8 .warp_head_screen_3 .text{
+	max-width: 350px;
+}
+
+.screen_8 .mb-20{
+	margin-bottom: 20px;
+}
+
+.removeParticipant.hidden{
+	display: none;
+}
+
+.removeParticipant{
+	color: #2F7135;
+	font-size: 14px;
+	line-height: 150%;
+	position: absolute;
+	left: 15px;
+	top: -25px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.removeParticipant svg{
+	margin-left: 8px;
+}
