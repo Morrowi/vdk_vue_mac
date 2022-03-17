@@ -22,7 +22,45 @@
 
 /* xs <= Small (sm) */
 @media (max-width : 576px) {
+	.warp_head img{
+		width: 100%;
+	}
+	.warp_block_1{
+		margin-bottom: 15px;
+	}
 
+	.screen_8 > .row{
+		margin: 0;
+		width: 100%;
+	}
+
+	.media_left,
+	.media_right{
+		margin-right: 0;
+		width: 100%;
+
+		overflow: hidden;
+	}
+	.warp_head_screen_3 .text{
+		font-size: 21px;
+		padding-left: 15px;
+	}
+	.warp_head_screen_3 img{
+		height: 80px;
+	}
+
+	.warp_selected_date_screen_3{
+		padding: 29px 20px;
+	}
+	.warp_radio_button{
+		flex-wrap: wrap;
+	}
+	.formInput{
+		min-width: 100%;
+	}
+	.warp_btn_back button{
+		margin: 0 5px;
+	}
 }
 
 

@@ -3,6 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/config/db.php';
 include $_SERVER['DOCUMENT_ROOT'].'/libs/function.php';
 global $connect;
 //AdmiNKarel22
+//Admin1
 $login =!empty($_POST['login'])?__FilterText($_POST['login']):'';
 $password =!empty($_POST['password'])?__FilterText($_POST['password']):'';
 
