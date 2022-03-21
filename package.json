@@ -15,7 +15,8 @@
     "vue": "^3.0.0",
     "vue-dadata-3": "^1.0.2",
     "vue-dadata-suggestions": "^0.6.2",
-    "vue-the-mask": "^0.11.1"
+    "vue-the-mask": "^0.11.1",
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
