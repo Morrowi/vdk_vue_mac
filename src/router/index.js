@@ -12,6 +12,22 @@ const routes = [
 
   },
   {
+    path: '/finish',
+    name: 'Finish',
+    component: () => import('../components/Finish.vue'),
+    //alias: ["/company/"]
+    //alias: ["/company", "/company_one_day", "/company_full_day", "private_person", "private_one_day", "private_full_day", "private_stud_full_day", "finish"]
+
+  },
+  {
+    path: '/result',
+    name: 'Result',
+    component: () => import('../components/Result.vue'),
+    //alias: ["/company/"]
+    //alias: ["/company", "/company_one_day", "/company_full_day", "private_person", "private_one_day", "private_full_day", "private_stud_full_day", "finish"]
+
+  },
+  {
     path: '/:pathMatch(.*)*',
     component: () => import('../views/NotFound.vue')
   },
