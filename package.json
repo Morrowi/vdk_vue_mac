@@ -14,6 +14,7 @@
     "core-js": "^3.6.5",
     "vee-validate": "^4.5.7",
     "vue": "^3.0.0",
+    "vuex": "^4.0.0-0",
     "vue-dadata-3": "^1.0.2",
     "vue-dadata-suggestions": "^0.6.2",
     "vue-router": "^4.0.0-0",

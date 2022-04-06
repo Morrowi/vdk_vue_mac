@@ -176,14 +176,7 @@
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <div class="warp_input">
-                    <dadata-suggestions
-                        v-model="organization"
-                        v-model:fullInfo="organization_full"
-                        field-value="unrestricted_value"
-                        placeholder="Название организации*"
-                        required
-                        name="name_organiz"
-                    />
+                      <input class="formInput" name="name_organiz" placeholder="Название организации*" type="text" required />
                     </div>
 
                     <div class="warp_input">
@@ -318,14 +311,7 @@
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <div class="warp_input">
-                      <dadata-suggestions
-                          v-model="organization"
-                          v-model:fullInfo="organization_full"
-                          field-value="unrestricted_value"
-                          placeholder="Название организации*"
-                          required
-                          name="name_organiz"
-                      />
+                      <input class="formInput" name="name_organiz" placeholder="Название организации*" type="text" required />
                     </div>
 
                     <div class="warp_input">
@@ -973,53 +959,16 @@ export default {
       }
     },
     cupon(val){
-      /*
-      KF2022
-      KAREL2022
-      KARELFORUM2022
-      KARELPTZ
-      KARELFORUM22
-      WONDERSHEVA
-      KARELVDK
-      VBKOMAROV
-      */
-      if(
-          val === 'KF2022' ||
-          val === 'KF301' ||
-          val === 'KF307' ||
-          val === 'KF311' ||
-          val === 'KF322' ||
-          val === 'KF333' ||
-          val === 'KF384' ||
-          val === 'KF355' ||
-          val === 'KF422' ||
-          val === 'KF010' ||
-          val === 'KF007' ||
-          val === 'KF098' ||
-          val === 'KF555' ||
-          val === 'KF757' ||
-          val === 'KF734' ||
-          val === 'KF799' ||
-          val === 'KF742' ||
-          val === 'KF888' ||
-          val === 'KF777' ||
-          val === 'KF788' ||
-          val === 'KF177' ||
-          val === 'KF445' ||
-          val === 'LOVEKF' ||
-          val === 'KF444' ||
-          val === 'KF488' ||
-          val === 'KF411' ||
-          val === 'KF466' ||
-          val === 'KF400' ||
-          val === 'KF499' ||
-          val === 'KF436' ||
-          val === 'KF487' ||
-          val === 'KF111' ||
-          val === 'KFJIVO'
+      let next = false;
+
+      for (let i of this.$store.state.promos){
+        if(i.code === val ){
+          next = true;
+        }
+      }
 
 
-      ){
+      if(next){
         this.price= this.showPrice.replace(/\s+/g, function() {return '';});
         if(this.currentStep == 'company_one_day' || this.currentStep == 'private_one_day'){
           this.price=this.price-this.price/100*20;
