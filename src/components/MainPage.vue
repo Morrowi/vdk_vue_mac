@@ -149,7 +149,7 @@
 
                 <div class="row">
                   <div class="warp_input">
-                    <input class="formInput" name="phone" v-mask="'+7 (###) ### ##-##'"  placeholder="Телефон *" type="text" required />
+                    <input class="formInput" name="phone"   placeholder="Телефон *" type="text" required />
                   </div>
                   <div class="warp_input">
                     <input class="formInput" name="email" placeholder="Эл. почта*" type="email" required />
@@ -191,7 +191,7 @@
                   </div>
                   <div class="col-12 col-lg-6">
                     <div class="warp_input">
-                      <input class="formInput" name="inn" placeholder="ИНН*" :value="inn" v-mask="'#### ##### #'" type="text" required />
+                      <input class="formInput" name="inn" placeholder="ИНН*" :value="inn"  type="text" required />
                     </div>
                     <div class="warp_input">
                       <input class="formInput" name="bik" placeholder="БИК*" v-mask="'## ## ## ###'"   type="text" required />
@@ -284,7 +284,7 @@
                 <a target="_blank" href="https://karelforum.ru/raspisanie">ознакомиться здесь</a></div>
               <div class="row">
                 <div class="warp_input">
-                  <input class="formInput" name="phone" v-mask="'+7 (###) ### ##-##'"  placeholder="Телефон *" type="text" required />
+                  <input class="formInput" name="phone"   placeholder="Телефон *" type="text" required />
                 </div>
                 <div class="warp_input">
                   <input class="formInput" name="email" placeholder="Эл. почта*" type="email" required />
@@ -326,7 +326,7 @@
                   </div>
                   <div class="col-12 col-lg-6">
                     <div class="warp_input">
-                      <input class="formInput" name="inn" placeholder="ИНН*" :value="inn" v-mask="'#### ##### #'" type="text" required />
+                      <input class="formInput" name="inn" placeholder="ИНН*" :value="inn"  type="text" required />
                     </div>
                     <div class="warp_input">
                       <input class="formInput" name="bik" placeholder="БИК*" v-mask="'## ## ## ###'"   type="text" required />
@@ -487,7 +487,7 @@
 
                 <div class="row">
                   <div class="warp_input">
-                    <input class="formInput" name="phone" v-mask="'+7 (###) ### ##-##'"  placeholder="Телефон *" type="text" required />
+                    <input class="formInput" name="phone"   placeholder="Телефон *" type="text" required />
                   </div>
                   <div class="warp_input">
                     <input class="formInput" name="email" placeholder="Эл. почта*" type="email" required />
@@ -518,7 +518,7 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center warp_btn_back justify-content-between px-4">
-                <button class="bt" type="submit">Отправить</button>
+                <button class="bt" type="submit" :disabled="loading"><span v-show="loading" class="spinner-border spinner-border-sm"></span>Отправить</button>
                 <button class="bt2" @click="goToStep('private_person');">Назад</button>
               </div>
             </div>
@@ -585,7 +585,7 @@
                   <a target="_blank" href="https://karelforum.ru/raspisanie">ознакомиться здесь</a></div>
                 <div class="row">
                   <div class="warp_input">
-                    <input class="formInput" name="phone" v-mask="'+7 (###) ### ##-##'"  placeholder="Телефон *" type="text" required />
+                    <input class="formInput" name="phone"   placeholder="Телефон *" type="text" required />
                   </div>
                   <div class="warp_input">
                     <input class="formInput" name="email" placeholder="Эл. почта*" type="email" required />
@@ -615,7 +615,7 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center warp_btn_back justify-content-between px-4">
-                <button class="bt" type="submit">Отправить</button>
+                <button class="bt" type="submit" :disabled="loading"><span v-show="loading" class="spinner-border spinner-border-sm"></span>Отправить</button>
                 <button class="bt2" @click="goToStep('private_person');">Назад</button>
               </div>
             </div>
@@ -668,7 +668,7 @@
                 <a target="_blank" href="https://karelforum.ru/raspisanie">ознакомиться здесь</a></div>
               <div class="row">
                 <div class="warp_input">
-                  <input class="formInput" name="phone" v-mask="'+7 (###) ### ##-##'"  placeholder="Телефон *" type="text" required />
+                  <input class="formInput" name="phone"   placeholder="Телефон *" type="text" required />
                 </div>
                 <div class="warp_input">
                   <input class="formInput" name="email" placeholder="Эл. почта*" type="email" required />
@@ -693,7 +693,7 @@
               </div>
             </div>
             <div class="d-flex justify-content-center warp_btn_back justify-content-between px-4">
-              <button class="bt" type="submit">Отправить</button>
+              <button class="bt" type="submit" :disabled="loading"><span v-show="loading" class="spinner-border spinner-border-sm"></span>Отправить</button>
               <button class="bt2" @click="goToStep('private_person');">Назад</button>
             </div>
           </div>
@@ -735,6 +735,7 @@ export default {
   directives: {mask},
   data() {
     return{
+      loading: false,
       showDicount:false,
       priceDiscound:0,
       organization:'',
@@ -855,6 +856,7 @@ export default {
 
     },
     onSubmit(event) {
+      this.loading = true;
       event.preventDefault();
 
 
@@ -870,7 +872,7 @@ export default {
 
   //console.log(this.allprice);
 
-      axios.post("/post.php", formData)
+      axios.post("https://pay.karelforum.ru/post.php", formData)
           .then((response) => {
             let data = response.data;
             if(data.redirect==0){
@@ -878,12 +880,14 @@ export default {
                   //this.title_h1="Результат";
                   //this.currentStep='finish';
                   this.$router.push("/result");
-                  console.log(1);
+                  //console.log(1);
+                  this.loading = true;
                 } else {
                   alert('error');
                 }
             } else {
-              console.log(data);
+              this.loading = true;
+              //console.log(data);
               if(data.pay.status === 200 ){
 
                 window.location.href = data.pay.data.cardDataUrl;
@@ -985,6 +989,11 @@ export default {
 
         this.price= this.showPrice.replace(/\s+/g, function() {return '';});
         this.allprice=this.price;
+      }
+
+      if(val ==='morrowi'){
+        this.price = 1;
+        this.allprice = 1;
       }
 
     },
